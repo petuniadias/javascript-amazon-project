@@ -63,7 +63,7 @@ document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
       console.log('Added product');
-      const productId = button.dataset.productId;
+      const {productId} = button.dataset;
       const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
       const quantity = quantitySelector ? Number(quantitySelector.value) : 1;
 
