@@ -69,7 +69,18 @@ document.querySelectorAll('.js-add-to-cart')
       const quantity = quantitySelector ? Number(quantitySelector.value) : 1;
 
       const addedToCart = document.querySelector(`.js-added-to-cart-${productId}`);
-      addedToCart.style.opacity = `1`;
+      addedToCart.classList.add(`added-to-cart-message`);
+
+      const previousTimeoutId = addedMessageTimeouts[productId];
+      if (previousTimeoutId) {
+        clearTimeout(previousTimeoutId);
+      }
+
+      const timeoutId = setTimeout(() => {
+        addedMessage.classList.remove('added-to-cart-message');
+      }, 2000);
+
+      addedMessageTimeouts[productId] = timeoutId;
 
       let matchingItem;
       
