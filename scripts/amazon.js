@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -68,8 +70,14 @@ document.querySelectorAll('.js-add-to-cart')
       const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
       const quantity = quantitySelector ? Number(quantitySelector.value) : 1;
 
+      const addedMessage = document.querySelector(
+        `.js-added-to-cart-${productId}`
+      );
+
       const addedToCart = document.querySelector(`.js-added-to-cart-${productId}`);
       addedToCart.classList.add(`added-to-cart-message`);
+
+      const addedMessageTimeouts = {};
 
       const previousTimeoutId = addedMessageTimeouts[productId];
       if (previousTimeoutId) {
