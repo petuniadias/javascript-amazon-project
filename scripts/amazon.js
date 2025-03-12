@@ -58,8 +58,6 @@ products.forEach((product) => {
   `;
 });
 
-console.log(productsHTML);
-
 document.querySelector('.js-products-grid')
   .innerHTML = productsHTML;
 
@@ -72,6 +70,9 @@ function updateCartQuantity() {
 
   document.querySelector('.js-cart-quantity')
     .innerHTML = cartQuantity;
+
+  document.querySelector('.js-checkout-quantity')
+    .innerHTML = `${cartQuantity} items`;
 }
 
 document.querySelectorAll('.js-add-to-cart')
@@ -111,6 +112,8 @@ document.querySelectorAll('.js-add-to-cart')
 
       updateCartQuantity();
 
+
     });
+
   });
 
