@@ -34,8 +34,8 @@ cart.forEach((cartItem) => {
           $${formatCurrency(matchingProduct.priceCents)}
         </div>
         <div class="product-quantity">
-          <span>
-            Quantity: <span class="quantity-label">${cartItem.quantity}</span>
+          <span class="quantity-info">
+            Quantity: <span class="quantity-label js-quantity-label">${cartItem.quantity}</span>
           </span>
           <span class="update-quantity-link link-primary js-update-quantity-link"
           data-product-id="${matchingProduct.id}">
@@ -135,5 +135,11 @@ document.querySelectorAll('.js-delete-link')
 
         const container = document.querySelector(`.js-cart-item-container-${productId}`);
         container.classList.add('is-editing-quantity');
+
+        const quantity = document.querySelector(`.js-quantity-label`);
+        quantity.style.display = `none`;
+
+        update.style.display = `none`;
+
       });
   });
