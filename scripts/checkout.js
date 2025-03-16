@@ -1,4 +1,4 @@
-import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity, updateQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
@@ -147,6 +147,7 @@ document.querySelectorAll('.js-delete-link')
 
         const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
         const newQuantity = Number(quantityInput.value);
+        updateQuantity(productId, newQuantity);
 
         if (!isNaN(newQuantity) && newQuantity > 0) {
           // Atualiza o array do carrinho
